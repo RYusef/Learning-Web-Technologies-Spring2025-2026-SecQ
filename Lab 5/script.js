@@ -44,7 +44,6 @@ function clearScreen() {
     screen.value = "";
 }
 
-// 5. Delete last character
 function del() {
     if (symbol === "") {
         num1 = num1.slice(0, -1);
