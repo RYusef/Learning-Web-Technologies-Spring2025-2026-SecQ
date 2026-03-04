@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div>
+        User Id <br>
+        <input type="text" id="userid"> <br>
+        Profile Picture <br>
+        <input type="file" id="pic"> <br>
+        <hr>
+        <input type="button" id="btn" value="Submit">
+        <p id="msg"></p>
+    </div>
+
+    <script>
+        let btn = document.getElementById('btn');
+        btn.addEventListener('click', function() {
+            let uid = document.getElementById('userid').value;
+            let pic = document.getElementById('pic').value;
+            let msg = document.getElementById('msg');
+
+            if (uid == "") {
+                msg.style.color = 'red';
+                msg.innerHTML = "User Id cannot be empty";
+            } else if (isNaN(Number(uid))) {
+                msg.style.color = 'red';
+                msg.innerHTML = "User Id must be a number";
+            } else if (pic == "") {
+                msg.style.color = 'red';
+                msg.innerHTML = "Please select a profile picture";
+            } else {
+                msg.style.color = 'green';
+                msg.innerHTML = "Success! ID and Picture received.";
+            }
+        });
+    </script>
+</body>
+</html>

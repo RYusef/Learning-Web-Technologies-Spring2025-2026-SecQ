@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div style="border: 1px solid black; padding: 10px; width: 170px;">
+        DATE OF BIRTH <br>
+        <input type="text" id="dd" size="1"> / 
+        <input type="text" id="mm" size="1"> / 
+        <input type="text" id="yyyy" size="3">
+        <hr>
+        <input type="button" id="btn" value="Submit">
+        <p id="msg"></p>
+    </div>
+
+    <script>
+        let btn = document.getElementById('btn');
+        btn.addEventListener('click', function() {
+            let d = document.getElementById('dd').value;
+            let m = document.getElementById('mm').value;
+            let y = document.getElementById('yyyy').value;
+            let msg = document.getElementById('msg');
+
+            let day = parseInt(d);
+            let month = parseInt(m);
+            let year = parseInt(y);
+
+            if(d == "" || m == "" || y == ""){
+                msg.style.color = 'red';
+                msg.innerHTML = "Cannot be empty";
+            } else if (isNaN(day) || isNaN(month) || isNaN(year)) {
+                msg.style.color = 'red';
+                msg.innerHTML = "Must be a number";
+            } else if (day < 1 || day > 31) {
+                msg.style.color = 'red';
+                msg.innerHTML = "Invalid Day (1-31)";
+            } else if (month < 1 || month > 12) {
+                msg.style.color = 'red';
+                msg.innerHTML = "Invalid Month (1-12)";
+            } else if (year < 1900 || year > 2024) {
+                msg.style.color = 'red';
+                msg.innerHTML = "Invalid Year (1900-2024)";
+            } else {
+                msg.style.color = 'green';
+                msg.innerHTML = "Success";
+            }
+        });
+    </script>
+</body>
+</html>

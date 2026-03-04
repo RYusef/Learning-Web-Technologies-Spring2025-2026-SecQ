@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div style="border: 1px solid black; padding: 10px; width: 220px;">
+        GENDER <br>
+        <input type="radio" name="gender" id="m"> Male
+        <input type="radio" name="gender" id="f"> Female
+        <input type="radio" name="gender" id="o"> Other
+    </div>
+    <br>
+    <div>
+        <input type="button" id="btn" value="Submit">
+        <p id="msg"></p>
+    </div>
+    <script>
+        let btn = document.getElementById('btn');
+        btn.addEventListener('click', function() {
+            let m = document.getElementById('m');
+            let f = document.getElementById('f');
+            let o = document.getElementById('o');
+            let msg = document.getElementById('msg');
+            if(!m.checked && !f.checked && !o.checked){
+                msg.style.color = 'red';
+                msg.innerHTML = "At least one must be selected";
+            } else {
+                msg.style.color = 'green';
+                msg.innerHTML = "Success";
+            }
+        });
+    </script>
+</body>
+</html>

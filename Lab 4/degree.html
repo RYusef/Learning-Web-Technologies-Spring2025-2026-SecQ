@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div style="border: 1px solid black; padding: 10px; width: 180px;">
+        DEGREE <br>
+        <input type="checkbox" name="deg" class="d"> SSC
+        <input type="checkbox" name="deg" class="d"> HSC
+        <input type="checkbox" name="deg" class="d"> BSc
+    </div>
+    <br>
+    <div>
+        <input type="button" id="btn" value="Submit">
+        <p id="msg"></p>
+    </div>
+    <script>
+        let btn = document.getElementById('btn');
+        btn.addEventListener('click', function() {
+            let degs = document.getElementsByClassName('d');
+            let count = 0;
+            for(let i=0; i < degs.length; i++){
+                if(degs[i].checked){ count++; }
+            }
+            let msg = document.getElementById('msg');
+            if(count < 1){
+                msg.style.color = 'red';
+                msg.innerHTML = "At least one must be selected";
+            } else {
+                msg.style.color = 'green';
+                msg.innerHTML = "Success";
+            }
+        });
+    </script>
+</body>
+</html>

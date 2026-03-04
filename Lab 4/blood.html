@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div style="border: 1px solid black; padding: 10px; width: 120px;">
+        BLOOD GROUP <br>
+        <select id="bg">
+            <option value=""></option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+        </select>   
+        <hr>
+        <input type="button" id="btn" value="Submit">
+        <p id="msg"></p>
+    </div>
+    <script>
+        let btn = document.getElementById('btn');
+        btn.addEventListener('click', function() {
+            let bg = document.getElementById('bg').value;
+            let msg = document.getElementById('msg');
+            if(bg == ""){
+                msg.style.color = 'red';
+                msg.innerHTML = "Must select one";
+            } else {
+                msg.style.color = 'green';
+                msg.innerHTML = "Selected: " + bg;
+            }
+        });
+    </script>
+</body>
+</html>

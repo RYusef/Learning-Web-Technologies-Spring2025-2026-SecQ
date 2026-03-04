@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div>
+        NAME <br>
+        <input type="text" id="username"> <br>
+        <br>
+        <input type="button" id="btn" value="Submit">
+        <p id="msg"></p>
+    </div>
+
+    <script>
+        let btn = document.getElementById('btn');
+        btn.addEventListener('click', function() {
+            let nameInput = document.getElementById('username');
+            let msg = document.getElementById('msg');
+            if(nameInput.value == ""){
+                msg.style.color = 'red';
+                msg.innerHTML = "Cannot be empty";
+            } else {
+                msg.style.color = 'green';
+                msg.innerHTML = "Valid Name";
+            }
+        });
+    </script>
+</body>
+</html>
