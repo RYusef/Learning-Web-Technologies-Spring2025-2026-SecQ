@@ -1,9 +1,9 @@
 body {
       font-family: Arial, sans-serif;
-      color: #fff;
+      color: #e2c6b5;
       text-align: center;
       padding: 40px;
-      background: #000000e9;
+      background: #4e2b1e;
     }
 
     h1 { margin-bottom: 10px; }
@@ -32,10 +32,10 @@ body {
       cursor: pointer;
     }
 
-    .cell:hover { background: #e8e8e8; }
-    .cell.x { color: #e74c3c; }
-    .cell.o { color: #2980b9; }
-    .cell.win { background: #f9e; }
+    .cell:hover { background: #e2c6b5; }
+    .cell.x { color: #c4342b; }
+    .cell.o { color: #0091cd; }
+    .cell.win { background: #a77b5b; }
 
     #scores {
       font-size: 16px;
