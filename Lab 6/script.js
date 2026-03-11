@@ -20,9 +20,7 @@ let scores = { X: 0, O: 0, D: 0 };
 
 cells.forEach(function(cell) {
   cell.addEventListener('click', function() {
-
     let index = cell.dataset.index;
-
     if (board[index] != '' || gameOver) {
       return;
     }
@@ -37,7 +35,7 @@ cells.forEach(function(cell) {
       winCombo.forEach(function(i) {
         cells[i].classList.add('win');
       });
-      statusEl.textContent = 'Player ' + currentPlayer + ' wins! 🎉';
+      statusEl.textContent = 'Player ' + currentPlayer + ' wins!';
       scores[currentPlayer] = scores[currentPlayer] + 1;
       updateScores();
       gameOver = true;
@@ -49,18 +47,18 @@ cells.forEach(function(cell) {
       updateScores();
       gameOver = true;
     } 
-    
+
     else {
       if (currentPlayer == 'X') {
         currentPlayer = 'O';
-      } else {
+      } 
+      else {
         currentPlayer = 'X';
       }
       statusEl.textContent = 'Player ' + currentPlayer + "'s turn";
     }
   });
 });
-
 
 function getWinningCombo() {
   for (let i = 0; i < WINS.length; i++) {
@@ -82,12 +80,10 @@ function updateScores() {
 }
 
 resetBtn.addEventListener('click', function() {
-
   board = ['', '', '', '', '', '', '', '', ''];
   currentPlayer = 'X';
   gameOver = false;
   statusEl.textContent = "Player X's turn";
-
   cells.forEach(function(cell) {
     cell.textContent = '';
     cell.className = 'cell';
