@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="card">
+    <h2 class="card-title">Shopping Cart</h2>
+
+    <div class="product-row">
+      <span class="product-name">Nexus One</span>
+      <span class="unit-price">Unit Price: <strong>৳1,000</strong></span>
+    </div>
+
+    <hr>
+
+    <div class="field-group">
+      <label for="quantity">Quantity</label>
+      <input type="number" id="quantity" min="0" value="0" />
+      <p class="error-msg" id="error-msg"></p>
+    </div>
+
+    <div class="field-group">
+      <label>Total Price</label>
+      <div class="total-display">৳<span id="total-value">0</span></div>
+    </div>
+
+    <div class="coupon-msg" id="coupon-msg">You're eligible for a Gift Coupon!</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
