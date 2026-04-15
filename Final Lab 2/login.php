@@ -6,7 +6,6 @@ if (isset($_SESSION['username'])) {
     exit;
 }
 
-// Auto-login from cookie
 if (isset($_COOKIE['remember_user'])) {
     foreach ($_SESSION['users'] ?? [] as $u) {
         if ($u['username'] === $_COOKIE['remember_user']) {
