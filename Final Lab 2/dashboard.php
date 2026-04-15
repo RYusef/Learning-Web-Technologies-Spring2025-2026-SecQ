@@ -1,7 +1,12 @@
 <?php
 session_start();
 if (!isset($_SESSION['username'])) { header('Location: login.php'); exit; }
+
 $username = $_SESSION['username'];
+$user = [];
+foreach ($_SESSION['users'] ?? [] as $u) {
+    if ($u['username'] === $username) { $user = $u; break; }
+}
 ?>
 <html>
 <head>
@@ -13,7 +18,7 @@ $username = $_SESSION['username'];
     <div class="header">
         <div class="logo"><span>X</span>Company</div>
         <div class="nav">
-            Logged in as <a href="view_profile.php"><?= htmlspecialchars($username) ?></a> |
+            Logged in as <a href="view_profile.php"><?= htmlspecialchars($user['name']) ?></a> |
             <a href="logout.php">Logout</a>
         </div>
     </div>
@@ -30,7 +35,7 @@ $username = $_SESSION['username'];
             </ul>
         </div>
         <div class="main">
-            <strong>Welcome <?= htmlspecialchars($username) ?></strong>
+            <strong>Welcome <?= htmlspecialchars($user['name']) ?></strong>
         </div>
     </div>
     <div class="footer">Copyright &copy; 2017</div>
