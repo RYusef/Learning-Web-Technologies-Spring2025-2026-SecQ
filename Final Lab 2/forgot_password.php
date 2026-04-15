@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($_SESSION['users'] ?? [] as $u) {
         if ($u['email'] === $email) {
             $found = true;
-            $message = 'Your password is: <strong>' . htmlspecialchars($u['password']) . '</strong>';
+            $message = 'Your password is: <strong>' . $u['password'] . '</strong>';
             break;
         }
     }
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     <div class="content">
         <?php if ($message): ?><p class="success"><?= $message ?></p><?php endif; ?>
-        <?php if ($error): ?><p class="error"><?= htmlspecialchars($error) ?></p><?php endif; ?>
+        <?php if ($error): ?><p class="error"><?= $error ?></p><?php endif; ?>
 
         <form method="post">
         <fieldset>

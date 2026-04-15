@@ -9,3 +9,4 @@ session_start();
 $_SESSION['users'] = $users;
 header('Location: login.php');
 exit;
+?>

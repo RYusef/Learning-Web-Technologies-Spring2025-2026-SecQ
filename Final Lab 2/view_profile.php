@@ -20,7 +20,7 @@ foreach ($_SESSION['users'] ?? [] as $u) {
     <div class="header">
         <div class="logo"><span>X</span>Company</div>
         <div class="nav">
-            Logged in as <a href="view_profile.php"><?= htmlspecialchars($username) ?></a> |
+            Logged in as <a href="view_profile.php"><?= $user['name'] ?></a> |
             <a href="logout.php">Logout</a>
         </div>
     </div>
@@ -43,10 +43,10 @@ foreach ($_SESSION['users'] ?? [] as $u) {
                     <tr>
                         <td>
                             <table>
-                                <tr><td>Name</td><td>: <?= htmlspecialchars($user['name']) ?></td></tr>
-                                <tr><td>Email</td><td>: <?= htmlspecialchars($user['email']) ?></td></tr>
-                                <tr><td>Gender</td><td>: <?= htmlspecialchars($user['gender']) ?></td></tr>
-                                <tr><td>Date of Birth</td><td>: <?= htmlspecialchars($user['dob']) ?></td></tr>
+                                <tr><td>Name</td><td>: <?= $user['name'] ?></td></tr>
+                                <tr><td>Email</td><td>: <?= $user['email'] ?></td></tr>
+                                <tr><td>Gender</td><td>: <?= $user['gender'] ?></td></tr>
+                                <tr><td>Date of Birth</td><td>: <?= $user['dob'] ?></td></tr>
                             </table>
                             <p style="margin-top:8px;">
                                 <a href="change_picture.php">Change</a> &nbsp;

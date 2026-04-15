@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     <div class="content">
         <?php foreach ($errors as $e): ?>
-            <p class="error"><?= htmlspecialchars($e) ?></p>
+            <p class="error"><?= $e ?></p>
         <?php endforeach; ?>
         <?php if ($success): ?>
             <p class="success"><?= $success ?></p>
@@ -74,9 +74,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <fieldset>
             <legend>REGISTRATION</legend>
             <table>
-                <tr><td>Name</td><td>: <input type="text" name="name" value="<?= htmlspecialchars($_POST['name'] ?? '') ?>"></td></tr>
-                <tr><td>Email</td><td>: <input type="email" name="email" value="<?= htmlspecialchars($_POST['email'] ?? '') ?>"></td></tr>
-                <tr><td>User Name</td><td>: <input type="text" name="username" value="<?= htmlspecialchars($_POST['username'] ?? '') ?>"></td></tr>
+                <tr><td>Name</td><td>: <input type="text" name="name" value="<?= $_POST['name'] ?? '' ?>"></td></tr>
+                <tr><td>Email</td><td>: <input type="email" name="email" value="<?= $_POST['email'] ?? '' ?>"></td></tr>
+                <tr><td>User Name</td><td>: <input type="text" name="username" value="<?= $_POST['username'] ?? '' ?>"></td></tr>
                 <tr><td>Password</td><td>: <input type="password" name="password"></td></tr>
                 <tr><td>Confirm Password</td><td>: <input type="password" name="confirm_password"></td></tr>
             </table>
@@ -89,9 +89,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <fieldset style="margin-top:8px;">
                 <legend>Date of Birth</legend>
                 <span class="dob">
-                    <input type="text" name="dob_dd" maxlength="2" placeholder="dd" value="<?= htmlspecialchars($_POST['dob_dd'] ?? '') ?>"> /
-                    <input type="text" name="dob_mm" maxlength="2" placeholder="mm" value="<?= htmlspecialchars($_POST['dob_mm'] ?? '') ?>"> /
-                    <input type="text" name="dob_yyyy" maxlength="4" placeholder="yyyy" class="yr" value="<?= htmlspecialchars($_POST['dob_yyyy'] ?? '') ?>">
+                    <input type="text" name="dob_dd" maxlength="2" placeholder="dd" value="<?= $_POST['dob_dd'] ?? '' ?>"> /
+                    <input type="text" name="dob_mm" maxlength="2" placeholder="mm" value="<?= $_POST['dob_mm'] ?? '' ?>"> /
+                    <input type="text" name="dob_yyyy" maxlength="4" placeholder="yyyy" class="yr" value="<?= $_POST['dob_yyyy'] ?? '' ?>">
                     <em>(dd/mm/yyyy)</em>
                 </span>
             </fieldset>

@@ -97,5 +97,6 @@ input[type=submit], input[type=reset] { padding: 2px 10px; cursor: pointer; }
     height: 70px; 
     border-radius: 50%; 
     object-fit: cover; 
+    display: block; 
+    margin-bottom: 8px;
 }
-    

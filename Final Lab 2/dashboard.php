@@ -18,7 +18,7 @@ foreach ($_SESSION['users'] ?? [] as $u) {
     <div class="header">
         <div class="logo"><span>X</span>Company</div>
         <div class="nav">
-            Logged in as <a href="view_profile.php"><?= htmlspecialchars($user['name']) ?></a> |
+            Logged in as <a href="view_profile.php"><?= $user['name'] ?></a> |
             <a href="logout.php">Logout</a>
         </div>
     </div>
@@ -35,7 +35,7 @@ foreach ($_SESSION['users'] ?? [] as $u) {
             </ul>
         </div>
         <div class="main">
-            <strong>Welcome <?= htmlspecialchars($user['name']) ?></strong>
+            <strong>Welcome <?= $user['name'] ?></strong>
         </div>
     </div>
     <div class="footer">Copyright &copy; 2017</div>
