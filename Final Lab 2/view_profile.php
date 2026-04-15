@@ -8,10 +8,8 @@ foreach ($_SESSION['users'] ?? [] as $u) {
     if ($u['username'] === $username) { $user = $u; break; }
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>xCompany - View Profile</title>
     <link rel="stylesheet" href="style.css">
 </head>
