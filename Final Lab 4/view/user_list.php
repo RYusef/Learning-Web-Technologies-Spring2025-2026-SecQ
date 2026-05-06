@@ -17,6 +17,11 @@ $users = getUsers();
     <h1>User List</h1>
 
     <a href="home.php">Back</a> |
+
+    <?php if($_COOKIE['role'] == 'admin'){ ?>
+        <a href="add.php">Add User</a> |
+    <?php } ?>
+
     <a href="../controller/logout.php">Logout</a>
 
     <br><br>
@@ -26,6 +31,7 @@ $users = getUsers();
             <th>ID</th>
             <th>Username</th>
             <th>Email</th>
+            <th>Role</th>
             <th>Action</th>
         </tr>
 
@@ -34,10 +40,14 @@ $users = getUsers();
             <td><?= $user['id'] ?></td>
             <td><?= $user['username'] ?></td>
             <td><?= $user['email'] ?></td>
+            <td><?= $user['role'] ?></td>
             <td>
-                <a href="edit.php?id=<?= $user['id'] ?>">EDIT</a> |
-                <a href="../controller/delete.php?id=<?= $user['id'] ?>">DELETE</a> |
                 <a href="detail.php?id=<?= $user['id'] ?>">DETAILS</a>
+
+                <?php if($_COOKIE['role'] == 'admin' && $user['role'] != 'admin'){ ?>
+                    | <a href="edit.php?id=<?= $user['id'] ?>">EDIT</a>
+                    | <a href="../controller/delete.php?id=<?= $user['id'] ?>">DELETE</a>
+                <?php } ?>
             </td>
         </tr>
         <?php } ?>

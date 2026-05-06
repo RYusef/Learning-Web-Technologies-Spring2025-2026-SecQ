@@ -20,7 +20,7 @@ $user = getUserById($id);
     <p>ID: <?= $user['id'] ?></p>
     <p>Username: <?= $user['username'] ?></p>
     <p>Email: <?= $user['email'] ?></p>
-    
+    <p>Role: <?= $user['role'] ?></p>
 
     <a href="user_list.php">Back</a>
 </body>

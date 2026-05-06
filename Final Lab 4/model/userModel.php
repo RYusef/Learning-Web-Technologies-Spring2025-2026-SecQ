@@ -7,7 +7,7 @@ function login($user){
     $result = mysqli_query($con, $sql);
 
     if(mysqli_num_rows($result) == 1){
-        return true;
+        return mysqli_fetch_assoc($result);
     }else{
         return false;
     }
@@ -15,24 +15,38 @@ function login($user){
 
 function addUser($user){
     $con = getConnection();
-    $sql = "insert into users values(null, '{$user['username']}', '{$user['password']}', '{$user['email']}')";
+
+    if(!isset($user['role'])){
+        $user['role'] = 'user';
+    }
+
+    $checkSql = "select * from users 
+                 where username='{$user['username']}'
+                 or email='{$user['email']}'";
+
+    $checkResult = mysqli_query($con, $checkSql);
+
+    if(mysqli_num_rows($checkResult) > 0){
+        return "duplicate";
+    }
+
+    $sql = "insert into users (username, password, email, role)
+            values('{$user['username']}',
+                   '{$user['password']}',
+                   '{$user['email']}',
+                   '{$user['role']}')";
 
     if(mysqli_query($con, $sql)){
-        return true;
+        return "success";
     }else{
-        return false;
+        return "failed";
     }
 }
 
 function getUsers(){
     $con = getConnection();
-
-    $sql = "SELECT * FROM users";
+    $sql = "select * from users";
     $result = mysqli_query($con, $sql);
-
-    if(!$result){
-        die("Query failed: " . mysqli_error($con));
-    }
 
     $users = [];
 
@@ -61,4 +75,4 @@ function deleteUser($id){
     $sql = "delete from users where id={$id}";
     return mysqli_query($con, $sql);
 }
-
+?>
